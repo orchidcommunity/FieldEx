@@ -1,0 +1,29 @@
+{
+  "name": "orchidcommunity/fieldex",
+  "description": "Field Excended Package for Orchid Platform",
+  "type": "library",
+  "keywords": [
+    "CMS",
+    "Orchid",
+    "Field",
+    "HTML"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Orchids\\FieldEx\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Orchids\\FieldEx\\Providers\\FieldExServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
