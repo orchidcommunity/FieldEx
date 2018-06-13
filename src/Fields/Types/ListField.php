@@ -1,11 +1,15 @@
 <?php
 declare(strict_types=1);
-namespace Orchids\FieldEx\Fields\Types;
-use Orchid\Platform\Fields\Field;
+
 /**
  * Class ListField.
  * @method $this name($value = true)
  */
+
+namespace Orchids\FieldEx\Fields\Types;
+
+use Orchid\Screen\Fields\Field;
+
 class ListField extends Field
 {
     /**

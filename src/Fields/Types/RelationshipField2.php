@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Orchids\FieldEx\Fields\Types;
 
-use Orchid\Platform\Fields\Field;
+use Orchid\Screen\Fields\Field;
 
 /**
  * Class RelationshipField.

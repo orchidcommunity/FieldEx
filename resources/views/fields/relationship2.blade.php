@@ -14,6 +14,9 @@
                     type: "POST",
                     cache: true,
                     delay: 250,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+                    },                    
                     url: function (params) {
                         return '{{route('platform.systems.widget',Base64Url\Base64Url::encode($handler))}}';
                     },
