@@ -1,4 +1,14 @@
-## Поля для Orchid Platform
+# Поля для Orchid Platform
+
+
+## Installation
+
+Install using Composer:
+```
+composer require orchidcommunity/fieldex
+```
+
+
 
 добавить в config/platform.php те поля которые нужны
 
