@@ -5,7 +5,7 @@
 
 Install using Composer:
 ```
-composer require orchidcommunity/fieldex
+composer require orchids/fieldex
 ```
 
 
