@@ -1,1 +1,14 @@
 @import "~cropperjs/dist/cropper.css";
+
+.preview {
+  overflow: hidden;
+  height: 9rem;
+  width: calc(100% - .2rem);
+  margin: 0 auto;
+}
+.docs-data .input-group-prepend .input-group-text {
+  min-width: 4rem;
+}
+.docs-data .input-group-append .input-group-text {
+  min-width: 3rem;
+}

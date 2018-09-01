@@ -5,7 +5,6 @@ import Cropper  from 'cropperjs';
 export default class extends Controller {
 
     /**
-     *
      * @type {string[]}
      */
      
@@ -38,13 +37,9 @@ export default class extends Controller {
         var dataScaleX = this.element.querySelector('.picture-dataScaleX');
         var dataScaleY = this.element.querySelector('.picture-dataScaleY');
         
-        //var width = this.offsetWidth;
-        //var height = this.offsetHeight;   
         cropPanel.width = this.data.get('width');
         cropPanel.height = this.data.get('height');
-        console.log("width = " + this.data.get('width'));
-        console.log("height = " + this.data.get('height'));
-        
+
       
         
         this.cropper = new Cropper(cropPanel, {
@@ -53,12 +48,10 @@ export default class extends Controller {
           
           ready: function () {
               console.log("ready");
-            
           },
           crop: function (event) {
               
             var data = event.detail;
-            //console.log(data);
             dataX.value = Math.round(data.x);
             dataY.value = Math.round(data.y);
             dataHeight.value = Math.round(data.height);
@@ -68,33 +61,11 @@ export default class extends Controller {
             dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
 
           }
-          /*
-          crop(event) {
-            console.log(event.detail.x);
-            console.log(event.detail.y);
-            console.log(event.detail.width);
-            console.log(event.detail.height);
-            console.log(event.detail.rotate);
-            console.log(event.detail.scaleX);
-            console.log(event.detail.scaleY);
-          },*/
         });
         
         let cropper = this.cropper;
-        /*
-        $(dataRotate).bind("change", function() {
-            cropper.rotateTo(dataRotate.value);
-        });
-        $(dataScaleX).bind("change", function() {
-            cropper.scaleX(dataScaleX.value);
-        });
-        $(dataScaleY).bind("change", function() {
-            cropper.scaleY(dataScaleY.value);
-        }); 
-        */
-        
+
         $(this.element.querySelectorAll('.picture-datas')).bind("change", function() {
-            //console.log(cropper.getData());
             cropper.setData({
                 x: Math.round(dataX.value),
                 y: Math.round(dataY.value),
@@ -105,20 +76,7 @@ export default class extends Controller {
                 scaleY:Math.round(dataScaleY.value)
             });
         });  
-        
-        /*
-        this.croppie = new Croppie(cropPanel, {
-            viewport: {
-                width: this.data.get('width'),
-                height: this.data.get('height'),
-            },
-            boundary: {
-                width: '100%',
-                height: 500
-            },
-            enforceBoundary: true
-        });
-        */
+
     }
 
     /**
@@ -136,22 +94,9 @@ export default class extends Controller {
         reader.readAsDataURL(event.target.files[0]);
 
         reader.onloadend = () => {
-            //console.log(reader.result);
             this.cropper.replace(reader.result)
-            /*
-            this.croppie.bind({
-                url: reader.result
-            });
-            */
         };
-        //console.log($(this.element.querySelector('.modal')).html());
-     
-
-        //$(this.element.querySelector('.modal')).dialog({ modal: true });
-       
-        //(function( $ ){
         $(this.element.querySelector('.modal')).modal('show');
-        //});
     }
 
     /**
@@ -168,11 +113,8 @@ export default class extends Controller {
 
             formData.append('file', blob);
             formData.append('storage', 'public');
-            //formData.append('croppedImage', blob);
 
-            // Use `jQuery.ajax` method
             let element = this.element;
-
             axios.post(platform.prefix('/systems/files'), formData)
                     .then((response) => {
                     let image = `/storage/${response.data.path}${response.data.name}.${response.data.extension}`;
@@ -183,47 +125,8 @@ export default class extends Controller {
                     element.querySelector('.picture-path').value = image;
                     $(element.querySelector('.modal')).modal('hide');
                 });
-          /*
-            $.ajax('/path/to/upload', {
-                method: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success() {
-                    console.log('Upload success');
-                },
-                error() {
-                    console.log('Upload error');
-                },
-            });
-            */
         });
 
-        /*
-        this.croppie.result('result', {
-            type: 'blob',
-            size: 'viewport',
-            format: 'png'
-        }).then(blob => {
-
-            let data = new FormData();
-            data.append('file', blob);
-            data.append('storage', 'public');
-
-            let element = this.element;
-            axios.post(platform.prefix('/systems/files'), data)
-                .then((response) => {
-
-                    let image = `/storage/${response.data.path}${response.data.name}.${response.data.extension}`;
-
-                    element.querySelector('.picture-preview').src = image;
-                    element.querySelector('.picture-preview').classList.remove('none');
-                    element.querySelector('.picture-remove').classList.remove('none');
-                    element.querySelector('.picture-path').value = image;
-                    $(element.querySelector('.modal')).modal('hide');
-                });
-        });
-        */
     }
 
     /**
@@ -272,15 +175,11 @@ export default class extends Controller {
         this.cropper.scaleY(-dataScaleY.value)
     }
     aspectratiowh () {
-        console.log(this.data.get('width')/this.data.get('height'));
         this.cropper.setAspectRatio(this.data.get('width')/this.data.get('height'));
     }
     aspectratiofree () {
-        console.log(NaN);
         this.cropper.setAspectRatio(NaN);
     }
 
-    
-    
     
 }

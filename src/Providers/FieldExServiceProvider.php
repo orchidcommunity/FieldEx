@@ -15,12 +15,11 @@ class FieldExServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'orchids/fieldex');
-        /*
+
         $this->publishes([		
-				__DIR__.'/../../public/js/' => public_path('orchids/fieldex/js'),
-				__DIR__.'/../../public/mix-manifest.json' => public_path('orchids/fieldex/mix-manifest.json'),
+				__DIR__.'/../../public/' => public_path('orchids/fieldex/'),
 			], 'public'); 
-        
+        /*
         $dashboard = $this->app->make(Dashboard::class);    
         */
         //$dashboard->registerResource('stylesheets','custom.css');

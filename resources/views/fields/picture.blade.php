@@ -7,20 +7,6 @@
          data-picture-image="{{$attributes['value']}}"
          data-picture-width="{{$width}}"
          data-picture-height="{{$height}}">
-        <style>
-            .preview {
-              overflow: hidden;
-              height: 9rem;
-              width: calc(100% - .2rem);
-              margin: 0 auto;
-            }
-            .docs-data .input-group-prepend .input-group-text {
-                min-width: 4rem;
-            }
-            .docs-data .input-group-append .input-group-text {
-                min-width: 3rem;
-            }
-        </style>
         <div class="b text-center wrapper-lg picture-actions">
 
             <div class="picture-container m-b-md">
